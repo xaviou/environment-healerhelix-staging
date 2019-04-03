@@ -13,6 +13,7 @@ pipeline {
       steps {
         container('maven') {
           dir('env') {
+            sh 'helm init --client-only'
             sh 'jx step helm build'
           }
         }
