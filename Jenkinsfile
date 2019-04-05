@@ -13,7 +13,7 @@ pipeline {
       steps {
         container('maven') {
           dir('env') {
-            sh 'echo \$HTTPS_PROXY'
+            sh 'printenv'
             sh 'helm init --client-only'
             sh 'jx step helm build'
           }
